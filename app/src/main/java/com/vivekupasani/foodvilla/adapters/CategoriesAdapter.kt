@@ -38,6 +38,8 @@ class CategoriesAdapter : RecyclerView.Adapter<CategoriesAdapter.viewHolder>() {
         Glide.with(holder.itemView).load(currentMeal.strMealThumb)
             .into(holder.binding.imgMeal)
 
+//        holder.binding.tvMealCategory.text = currentMeal
+
         holder.itemView.setOnClickListener {
             onItemClick?.invoke(currentMeal)
         }

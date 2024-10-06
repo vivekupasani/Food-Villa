@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.vivekupasani.foodvilla.adapters.CategoriesAdapter
 import com.vivekupasani.foodvilla.databinding.ActivityCategoriesBinding
 import com.vivekupasani.foodvilla.models.CategoryMeals
@@ -49,7 +50,7 @@ class categories : AppCompatActivity() {
         categoriesAdapter = CategoriesAdapter()
         binding.mealRecyclerview.apply {
             adapter = categoriesAdapter
-            layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
     }
 

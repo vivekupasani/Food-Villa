@@ -34,9 +34,12 @@ class favoritesAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentMeal = mealList[position]
+
         holder.apply {
             Glide.with(holder.itemView).load(currentMeal.strMealThumb).into(binding.imgMeal)
             binding.tvMealName.text = currentMeal.strMeal
+            binding.tvMealArea.text = currentMeal.strArea
+            binding.tvMealCategory.text = currentMeal.strCategory
 
             itemView.setOnClickListener {
                 onItemClick?.invoke(currentMeal)

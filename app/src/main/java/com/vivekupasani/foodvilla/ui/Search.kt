@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.vivekupasani.foodvilla.adapters.SearchAdapter
 import com.vivekupasani.foodvilla.databinding.FragmentSearchBinding
 import com.vivekupasani.foodvilla.models.Meal
@@ -89,7 +90,7 @@ class Search : Fragment() {
     private fun setUpSearchRecyclerView() {
         searchAdapter = SearchAdapter()
         binding.rvSearch.apply {
-            layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = searchAdapter
         }
     }

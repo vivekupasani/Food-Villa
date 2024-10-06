@@ -13,9 +13,10 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/myfont"
         android:gravity="center"
-        android:text="Categories"
-        android:textColor="@color/accent"
+        android:text="C A T E G O R I E S"
+        android:textColor="@color/onSecondary"
         android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

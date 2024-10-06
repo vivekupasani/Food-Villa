@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.vivekupasani.foodvilla.adapters.favoritesAdapter
 import com.vivekupasani.foodvilla.databinding.FragmentFavoriteBinding
 import com.vivekupasani.foodvilla.models.Meal
@@ -62,7 +63,7 @@ class Favorite : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        binding.favoriteRecyclerView.layoutManager = GridLayoutManager(context, 2)
+        binding.favoriteRecyclerView.layoutManager = LinearLayoutManager(context)
         favoritesAdapter = favoritesAdapter(requireContext(), arrayListOf())
         binding.favoriteRecyclerView.adapter = favoritesAdapter
     }

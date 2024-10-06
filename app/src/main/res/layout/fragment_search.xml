@@ -1,80 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".ui.Search">
 
-
-    <EditText
-        android:id="@+id/ed_search"
+    <!-- Search Bar with an EditText and Search Icon -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/search_card"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/search_box_background"
-        android:hint="Type meal name ..."
-        android:inputType="text"
-        android:maxLines="1"
-        android:paddingLeft="15dp"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/surface">
 
-    <ImageView
-        android:id="@+id/ic_search"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/ic_search"
-        app:layout_constraintBottom_toBottomOf="@id/ed_search"
-        app:layout_constraintStart_toEndOf="@id/ed_search"
-        app:layout_constraintTop_toTopOf="@id/ed_search" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center_vertical">
 
+            <!-- Search Icon -->
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:paddingStart="8dp"
+                android:src="@drawable/ic_baseline_search_24"
+                app:tint="@color/onSurface" />
+
+            <!-- Search EditText -->
+            <EditText
+                android:id="@+id/ed_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:hint="Search for meals"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:backgroundTint="@android:color/transparent"
+                android:textColor="@color/onSurface"
+                android:imeOptions="actionSearch" />
+
+            <ImageView
+                android:id="@+id/ic_search"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_search"
+                app:tint="@color/onSecondary" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- TextView for showing found items count -->
     <TextView
         android:id="@+id/itemFound"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/myfont"
-        android:gravity="center"
         android:text=""
-        android:textColor="@color/accent"
-        android:textSize="22sp"
+        android:textColor="@color/secondary"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_search" />
+        app:layout_constraintTop_toBottomOf="@+id/search_card" />
 
-
-    <TextView
-        android:id="@+id/itemNotFound"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/myfont"
-        android:gravity="center"
-        android:text="Item Not found"
-        android:textColor="@color/accent"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- RecyclerView for displaying search results -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSearch"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemFound"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/itemFound" />
 
+    <!-- TextView for when no items are found -->
+    <TextView
+        android:id="@+id/itemNotFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="No items found"
+        android:textSize="18sp"
+        android:textColor="@color/secondary"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemFound" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
